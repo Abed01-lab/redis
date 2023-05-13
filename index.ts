@@ -11,11 +11,11 @@ app.post('/', async (req, res) => {
 	console.log(req.body)
 	const { key_field, value_field } = req.body
 	console.log(key_field, value_field)
-  await client.connect();
-  await client.set(key_field, value_field)
-  await client.expire(key_field, 10)
-  await client.disconnect();
-  res.status(203);
+	await client.connect();
+	const data = await client.set(key_field, value_field)
+	await client.expire(key_field, 10)
+	await client.disconnect();
+  	res.json(data);
 });
 
 app.get('/', async (req, res) => {
