@@ -19,10 +19,10 @@ app.post('/', async (req, res) => {
 });
 
 app.get('/', async (req, res) => {
-  await client.connect();
-  const data = await client.keys("*")
-  await client.disconnect();
-  res.json(data);
+	await client.connect();
+	const data = await client.keys("*")
+	await client.disconnect();
+	res.json(data);
 });
 
 app.get('/:key', async (req, res, ) => {
